@@ -48,3 +48,13 @@ input[type=email]:not(.browser-default):focus:not([readonly]) + label,
 input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: #ec407a !important;
 }
+
+.info {
+  display: grid;
+
+  grid-template-columns: 30% 30% 30% 9%;
+  font-size: 18px;
+}
+.assigned_to {
+  font-weight: bold;
+}
