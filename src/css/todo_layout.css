@@ -49,15 +49,17 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: #26a69a !important;
 }
 
-.info, .listheader {
-  display: grid;
-  grid-template-columns: 30% 25% 20% 10%;
-}
+
+
 .listheader {
   font-size: 48px;
 }
-.info {
+.itemCard {
   font-size: 20px;
+}
+
+.list_item_card_due_date, .dateHeader, #addItemCard {
+  text-align: center;
 }
 
 .assigned_to {
@@ -67,19 +69,15 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 24px!important;
   padding-top: 8px;
 }
+#editItemButtons {
+  padding-top: 20px;
+}
+#addItemCard {
+  text-align: center;
+}
 .home_new_list_container {
   padding: 5px;
   text-align: center;
-}
-
-.list_item_card_due_date, .dateHeader, #addItemCard {
-  text-align: center;
-}
-.list_item_card_completed, .list_item_card_not_completed, .statusHeader {
-  padding-left: 50px;
-}
-.taskHeader {
-  padding-left: 24px;
 }
 .largeIcon {
   font-size: 50px !important;
@@ -88,10 +86,6 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 48px;
   padding-top: 8px;
 }
-.itemCompletedRow {
-  padding-bottom: 20px;
-}
-
 #modal-0 {
   font-size: 24px;
   max-height: 100%;

@@ -67,8 +67,6 @@ export class ItemScreen extends Component {
 
     render() {
         const auth = this.props.auth;
-        const todoList = this.props.todoList;
-        const item = this.props.item;
         if (!auth.uid) {
             return <Redirect to="/" />;
         }
@@ -76,23 +74,21 @@ export class ItemScreen extends Component {
         return (
             <div className="container">
                 <h4 className="grey-text text-darken-3" id="todoItemHeader">Item</h4>
-
+                
                 <div className="input-field">
                     <label className="active">Description</label>
                     <input 
                         type="text"
                         id="description"
-                        defaultValue={this.props.item.description}
                         onChange={this.updateChange}
                         value={this.state.description} />
                 </div>
-                
+                    
                 <div className="input-field">
                     <label className="active">Assigned To</label>
                     <input 
                         type="text"
                         id="assigned_to"
-                        defaultValue={this.props.item.assigned_to}
                         onChange={this.updateChange}
                         value={this.state.assigned_to} />
                 </div>
@@ -102,33 +98,32 @@ export class ItemScreen extends Component {
                     <input 
                         type="date"
                         id="due_date" 
-                        defaultValue={this.props.item.due_date}
                         onChange={this.updateChange}
                         value={this.state.due_date} />
                 </div>
 
-                <div className="itemCompletedRow">
+                <div>
                     <label>
-                        <input type="checkbox" class="filled-in" checked={this.state.completed}
+                        <input type="checkbox" className="filled-in" checked={this.state.completed}
                             onChange={this.updateChange} id="completed"/>
                         <span className="statusLabel black-text">Completed</span>
                     </label>
                 </div>
 
-                <footer>
-                    <a class="btn waves-effect waves-light"
+                <div id="editItemButtons">
+                    <button className="btn waves-effect waves-light"
                         onClick={this.handleSubmit}>Submit
-                        <i class="material-icons right">flight_takeoff</i>
-                    </a>
+                        <i className="material-icons right">flight_takeoff</i>
+                    </button>
 
                     &nbsp;
 
-                    <a class="btn waves-effect waves-light grey lighten-1"
+                    <button className="btn waves-effect waves-light grey lighten-1"
                         onClick={() => this.props.history.goBack()}>Cancel
-                        <i class="material-icons right">airplanemode_inactive</i>
-                    </a>
-                </footer>
-                
+                        <i className="material-icons right">airplanemode_inactive</i>
+                    </button>
+                </div>
+                    
             </div>
         );
     }

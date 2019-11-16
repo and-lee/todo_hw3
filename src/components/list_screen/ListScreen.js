@@ -47,21 +47,18 @@ class ListScreen extends Component {
                 <div className="row">
                     <h4 className="col s11 grey-text text-darken-3" id="todoListHeader">Todo List</h4>
                     <Modal header="Delete List"
-                        trigger={<i class="col s1 large material-icons right grey-text text-darken-3" id="deleteList">delete_forever</i>}
+                        trigger={<i className="col s1 large material-icons right grey-text text-darken-3" id="deleteList">delete_forever</i>}
                         options={{dismissible: false}}
                         actions={
-                            <div class="row">
-                                <button class="btn waves-effect waves-light z-depth-0" onClick={this.handleConfirm}>Yes</button>
+                            <div>
+                                <button className="btn waves-effect waves-light z-depth-0" onClick={this.handleConfirm}>Yes</button>
                                 &nbsp;
-                                <button class="btn waves-effect waves-light grey lighten-1 z-depth-0 modal-close">No</button>
+                                <button className="btn waves-effect waves-light grey lighten-1 z-depth-0 modal-close">No</button>
                             </div>
-
                         }>
                             <p> Are you sure you want to delete this list? </p>
                             <div>The list will not be retreivable.</div>
-                        
                     </Modal>
-
                 </div>
                 
                 <div className="input-field">
