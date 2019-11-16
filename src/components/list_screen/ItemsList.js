@@ -28,7 +28,7 @@ class ItemsList extends React.Component {
                     );})
                 }
 
-                <div className="addItem card z-depth-1 light-green lighten-4"><i class="addIcon material-icons">add_box</i></div>
+                <div className="card z-depth-1 light-green lighten-4" id="addItemCard"><i class="material-icons" id="addItemCardContent">add_box</i></div>
 
             </div>
         );

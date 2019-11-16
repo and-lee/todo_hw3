@@ -7,9 +7,9 @@ import { getFirestore } from 'redux-firestore';
 
 class TodoListLinks extends React.Component {
 
-    handleOnClick = (p) => (e) => { // order - push list to top
+    handleOnClick = (id) => { // order - push list to top
         const fireStore = getFirestore();
-        fireStore.collection("todoLists").doc(p).update( {
+        fireStore.collection("todoLists").doc(id).update( {
             time : new Date().getTime()
         });
     } 
