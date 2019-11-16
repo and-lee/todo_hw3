@@ -4,7 +4,7 @@ class ItemCard extends React.Component {
     render() {
         const { item } = this.props;  
         return (
-            <div className="card z-depth-0 todo-list-link green lighten-4">
+            <div className="card z-depth-1 todo-list-link light-green lighten-3">
                 <div className="card-content black-text text-darken-3">
 
                     <span className="card-title">{item.description}</span>

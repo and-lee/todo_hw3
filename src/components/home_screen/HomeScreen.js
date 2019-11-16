@@ -26,7 +26,7 @@ class HomeScreen extends Component {
                         </div>
                         
                         <div className="home_new_list_container">
-                                <button className="home_new_list_button" onClick={this.handleNewList}>
+                                <button className="home_new_list_button waves-effect waves-light btn-large" onClick={this.handleNewList}>
                                     Create a New To Do List
                                 </button>
                         </div>
