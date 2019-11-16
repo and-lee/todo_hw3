@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import ItemsList from './ItemsList.js'
 import { firestoreConnect } from 'react-redux-firebase';
+import { getFirestore } from 'redux-firestore';
 
 class ListScreen extends Component {
     state = {
@@ -32,6 +33,11 @@ class ListScreen extends Component {
         if (!auth.uid) {
             return <Redirect to="/" />;
         }
+        // order - push list to top
+        const fireStore = getFirestore();
+        fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
+            time : new Date().getTime()
+        });
 
         return (
             <div className="container">
