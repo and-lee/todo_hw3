@@ -18,9 +18,7 @@ class ItemCard extends React.Component {
                         </div>
                         {item.completed ? 
                             <div className='list_item_card_completed'><i class="material-icons">event_available</i>&nbsp;Completed</div> : 
-                            <div className='list_item_card_not_completed'><i class="material-icons">schedule</i>&nbsp;Pending</div>}
-
-<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>                    
+                            <div className='list_item_card_not_completed'><i class="material-icons">schedule</i>&nbsp;Pending</div>}                  
 
                     </span>
 

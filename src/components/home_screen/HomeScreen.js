@@ -7,6 +7,16 @@ import TodoListLinks from './TodoListLinks'
 
 class HomeScreen extends Component {
 
+    handleChange = (e) => {
+        const { target } = e;
+
+        // update database
+        /*this.props.firestore.collection("todoLists").doc(this.props.todoList.id).update( {
+            [target.id] : target.value
+        });*/
+
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;

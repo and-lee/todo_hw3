@@ -12,6 +12,12 @@ class ItemsList extends React.Component {
         console.log("ItemsList: todoList.id " + todoList.id);
         return (
             <div className="todo-lists section">
+                <div className="card z-depth-1 listheader #757575 grey darken-2 white-text">
+                    <div className="taskHeader">Task</div>
+                    <div className="dateHeader">Due Date</div>
+                    <div className="statusHeader">Status</div>
+                </div>
+
                 {items && items.map(function(item) {
                     item.id = item.key;
                     return (
@@ -21,6 +27,9 @@ class ItemsList extends React.Component {
                         
                     );})
                 }
+
+                <div className="card z-depth-1 listheader"></div>
+
             </div>
         );
     }

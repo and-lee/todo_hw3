@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { getFirestore } from 'redux-firestore';
 
 export class ItemScreen extends Component {
     state = {
@@ -53,11 +54,11 @@ export class ItemScreen extends Component {
             let transaction = new editItem_Transaction(this.props.todoItem, this.state.description, this.state.assigned_to, this.state.due_date, this.state.completed);
             this.props.jsTPS.addTransaction(transaction);
         }
-        this.props.loadList(this.props.todoList);
         */
 
         // update database
-        this.props.firestore.collection("todoLists").doc(this.props.todoList.id).update( {
+        const fireStore = getFirestore();
+        fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
             items : itemList
         });
         this.props.history.goBack()
@@ -106,7 +107,7 @@ export class ItemScreen extends Component {
                         <span className="black-text">Completed</span>
                         </label>
                     </div>
-                    
+
                     <footer>
                         <button class="btn waves-effect waves-light" type="submit" name="action"
                             onClick={this.handleSubmit}>Submit

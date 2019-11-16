@@ -51,10 +51,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 
 .info {
   display: grid;
-  grid-template-columns: 35% 25% 20% 10%;
+  grid-template-columns: 30% 25% 20% 10%;
   font-size: 20px;
 }
-.card-title, .info, h4, .nav-wrapper {
+.card-title, .info, h4, .nav-wrapper, .listheader, .banner {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -65,9 +65,27 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 #name, #owner {
   font-size: 24px;
 }
-
 h4 {
   padding-bottom: 10px;
+}
+.home_new_list_container {
+  padding: 5px;
+  text-align: center;
+}
+.listheader {
+  font-size: 48px;
+  display: grid;
+  grid-template-columns: 30% 25% 20% 10%;
+  
+}
+.list_item_card_due_date, .dateHeader {
+  text-align: center;
+}
+.list_item_card_completed, .list_item_card_not_completed, .statusHeader {
+  padding-left: 50px;
+}
+.taskHeader {
+  padding-left: 24px;
 }
 
 .card-title{
