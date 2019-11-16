@@ -12,7 +12,7 @@ class ItemsList extends React.Component {
         console.log("ItemsList: todoList.id " + todoList.id);
         return (
             <div className="todo-lists section">
-                <div className="card z-depth-1 listheader #757575 grey darken-2 white-text">
+                <div className="listheader card z-depth-1 #757575 grey darken-2 white-text">
                     <div className="taskHeader">Task</div>
                     <div className="dateHeader">Due Date</div>
                     <div className="statusHeader">Status</div>
@@ -28,7 +28,7 @@ class ItemsList extends React.Component {
                     );})
                 }
 
-                <div className="card z-depth-1 listheader"></div>
+                <div className="addItem card z-depth-1 light-green lighten-4"><i class="addIcon material-icons">add_box</i></div>
 
             </div>
         );

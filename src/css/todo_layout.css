@@ -78,7 +78,7 @@ h4 {
   grid-template-columns: 30% 25% 20% 10%;
   
 }
-.list_item_card_due_date, .dateHeader {
+.list_item_card_due_date, .dateHeader, .addItem {
   text-align: center;
 }
 .list_item_card_completed, .list_item_card_not_completed, .statusHeader {
@@ -88,6 +88,15 @@ h4 {
   padding-left: 24px;
 }
 
+.largeIcon {
+  font-size: 50px !important;
+}
+.addIcon {
+  font-size: 48px;
+  padding-top: 8px;
+}
+
 .card-title{
   font-weight: normal!important;
+  margin-bottom: 0!important;
 }
