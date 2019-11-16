@@ -51,10 +51,25 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 
 .info {
   display: grid;
-
-  grid-template-columns: 30% 30% 30% 9%;
-  font-size: 18px;
+  grid-template-columns: 35% 25% 20% 10%;
+  font-size: 20px;
+}
+.card-title, .info, h4, .nav-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 .assigned_to {
   font-weight: bold;
+}
+#name, #owner {
+  font-size: 24px;
+}
+
+h4 {
+  padding-bottom: 10px;
+}
+
+.card-title{
+  font-weight: normal!important;
 }

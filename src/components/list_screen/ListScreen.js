@@ -34,8 +34,8 @@ class ListScreen extends Component {
         }
 
         return (
-            <div className="container white">
-                <h5 className="grey-text text-darken-3">Todo List</h5>
+            <div className="container">
+                <h4 className="grey-text text-darken-3">Todo List</h4>
                 <div className="input-field">
                     <label htmlFor="email" className="active">Name</label>
                     <input type="text" name="name" id="name" onChange={this.handleChange} value={todoList.name} />
