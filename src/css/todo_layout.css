@@ -49,12 +49,17 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: #26a69a !important;
 }
 
-.info {
+.info, .listheader {
   display: grid;
   grid-template-columns: 30% 25% 20% 10%;
+}
+.listheader {
+  font-size: 48px;
+}
+.info {
   font-size: 20px;
 }
-.card-title, .info, h4, h5, .nav-wrapper, .listheader, .banner, .input-field > label, .statusLabel {
+.card-title, .info, h4, h5, .nav-wrapper, .listheader, .banner, .input-field > label, .statusLabel, #modal-0 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -66,19 +71,11 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 24px!important;
   padding-top: 8px;
 }
-h4 {
-  padding-bottom: 10px;
-}
 .home_new_list_container {
   padding: 5px;
   text-align: center;
 }
-.listheader {
-  font-size: 48px;
-  display: grid;
-  grid-template-columns: 30% 25% 20% 10%;
-  
-}
+
 .list_item_card_due_date, .dateHeader, .addItem {
   text-align: center;
 }
@@ -88,7 +85,6 @@ h4 {
 .taskHeader {
   padding-left: 24px;
 }
-
 .largeIcon {
   font-size: 50px !important;
 }
@@ -102,7 +98,25 @@ h4 {
 .itemCompletedRow {
   padding-bottom: 20px;
 }
+#modal-0 {
+  font-size: 24px;
+}
+#modal-0-buttons {
+  font-size: 18px!important;
+}
 
+#deleteList {
+  cursor: pointer;
+}
+#todoItemHeader {
+  padding-bottom: 10px;
+}
+#todoListHeader {
+  padding: 0!important;
+}
+.row {
+  margin-bottom: 0px;
+}
 .card-title {
   font-weight: normal!important;
   margin-bottom: 0!important;

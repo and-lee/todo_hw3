@@ -75,7 +75,7 @@ export class ItemScreen extends Component {
 
         return (
             <div className="container">
-                <h4 className="grey-text text-darken-3">Item</h4>
+                <h4 className="grey-text text-darken-3" id="todoItemHeader">Item</h4>
 
                 <div className="input-field">
                     <label className="active">Description</label>
@@ -123,7 +123,7 @@ export class ItemScreen extends Component {
 
                     &nbsp;
 
-                    <a class="btn waves-effect waves-light red lighten-1"
+                    <a class="btn waves-effect waves-light grey lighten-1"
                         onClick={() => this.props.history.goBack()}>Cancel
                         <i class="material-icons right">airplanemode_inactive</i>
                     </a>

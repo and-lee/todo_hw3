@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import ItemsList from './ItemsList.js'
 import { firestoreConnect } from 'react-redux-firebase';
+import Modal from 'react-materialize/lib/Modal';
 import { getFirestore } from 'redux-firestore';
 
 class ListScreen extends Component {
@@ -27,21 +28,42 @@ class ListScreen extends Component {
 
     }
 
+    handleConfirm = (e) => {
+        console.log("Delete: todoList.id: " + this.props.todoList.id);
+        const fireStore = getFirestore();
+        fireStore.collection('todoLists').doc(this.props.todoList.id).delete();
+        this.props.history.goBack();
+    }
+
     render() {
         const auth = this.props.auth;
         const todoList = this.props.todoList;
         if (!auth.uid) {
             return <Redirect to="/" />;
         }
-        /*// order - push list to top
-        const fireStore = getFirestore();
-        fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
-            time : new Date().getTime()
-        });*/
 
         return (
             <div className="container">
-                <h4 className="grey-text text-darken-3">Todo List</h4>
+                <div className="row">
+                    <h4 className="col s11 grey-text text-darken-3" id="todoListHeader">Todo List</h4>
+                    <Modal header="Delete List"
+                        trigger={<i class="col s1 large material-icons right grey-text text-darken-3" id="deleteList">delete_forever</i>}
+                        options={{dismissible: false}}
+                        actions={
+                            <div class="row">
+                                <button class="btn waves-effect waves-light z-depth-0" onClick={this.handleConfirm}>Yes</button>
+                                &nbsp;
+                                <button class="btn waves-effect waves-light grey lighten-1 z-depth-0 modal-close">No</button>
+                            </div>
+
+                        }>
+                            <p> Are you sure you want to delete this list? </p>
+                            <div>The list will not be retreivable.</div>
+                        
+                    </Modal>
+
+                </div>
+                
                 <div className="input-field">
                     <label htmlFor="email" className="active">Name</label>
                     <input type="text" name="name" id="name" onChange={this.handleChange} value={todoList.name} />

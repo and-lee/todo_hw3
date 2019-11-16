@@ -43,7 +43,7 @@ class HomeScreen extends Component {
                         
                         <div className="home_new_list_container">
                                 <button className="home_new_list_button waves-effect waves-light btn-large" onClick={this.handleNewList}>
-                                    <i class="largeIcon material-icons left">format_list_bulleted</i>
+                                    <i class="largeIcon material-icons right">format_list_bulleted</i>
                                     Create a New To Do List
                                 </button>
                         </div>
