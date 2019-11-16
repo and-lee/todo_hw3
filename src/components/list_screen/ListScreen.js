@@ -33,11 +33,11 @@ class ListScreen extends Component {
         if (!auth.uid) {
             return <Redirect to="/" />;
         }
-        // order - push list to top
+        /*// order - push list to top
         const fireStore = getFirestore();
         fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
             time : new Date().getTime()
-        });
+        });*/
 
         return (
             <div className="container">

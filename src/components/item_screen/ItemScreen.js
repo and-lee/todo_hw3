@@ -61,7 +61,7 @@ export class ItemScreen extends Component {
         fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
             items : itemList
         });
-        this.props.history.goBack()
+        this.props.history.goBack();
     }
 
 
@@ -74,53 +74,60 @@ export class ItemScreen extends Component {
         }
 
         return (
-            <div className="container white">
-                <h5 className="grey-text text-darken-3">Item</h5>
-                    <div id="item_description_prompt" className="item_prompt">Description:</div>
-                    <input className="item_input"
+            <div className="container">
+                <h4 className="grey-text text-darken-3">Item</h4>
+
+                <div className="input-field">
+                    <label className="active">Description</label>
+                    <input 
                         type="text"
                         id="description"
                         defaultValue={this.props.item.description}
                         onChange={this.updateChange}
                         value={this.state.description} />
-                    
-                    <div id="item_assigned_to_prompt" className="item_prompt">Assigned To:</div>
-                    <input className="item_input"
+                </div>
+                
+                <div className="input-field">
+                    <label className="active">Assigned To</label>
+                    <input 
                         type="text"
                         id="assigned_to"
                         defaultValue={this.props.item.assigned_to}
                         onChange={this.updateChange}
                         value={this.state.assigned_to} />
-                    
-                    <div id="item_due_date_prompt" className="item_prompt">Due Date:</div>
-                    <input className="item_input"
+                </div>
+
+                <div className="input-field">
+                    <label className="active">Due Date</label>
+                    <input 
                         type="date"
                         id="due_date" 
                         defaultValue={this.props.item.due_date}
                         onChange={this.updateChange}
                         value={this.state.due_date} />
-                    
-                    <div>
-                        <label>
+                </div>
+
+                <div className="itemCompletedRow">
+                    <label>
                         <input type="checkbox" class="filled-in" checked={this.state.completed}
-                        onChange={this.updateChange} id="completed"/>
-                        <span className="black-text">Completed</span>
-                        </label>
-                    </div>
+                            onChange={this.updateChange} id="completed"/>
+                        <span className="statusLabel black-text">Completed</span>
+                    </label>
+                </div>
 
-                    <footer>
-                        <button class="btn waves-effect waves-light" type="submit" name="action"
-                            onClick={this.handleSubmit}>Submit
-                            <i class="material-icons right">flight_takeoff</i>
-                        </button>
+                <footer>
+                    <a class="btn waves-effect waves-light"
+                        onClick={this.handleSubmit}>Submit
+                        <i class="material-icons right">flight_takeoff</i>
+                    </a>
 
-                        &nbsp;
+                    &nbsp;
 
-                        <button  class="btn waves-effect waves-light" type="submit" name="action"
-                            onClick={() => this.props.history.goBack()}>Cancel
-                            <i class="material-icons right">airplanemode_inactive</i>
-                        </button>
-                    </footer>
+                    <a class="btn waves-effect waves-light red lighten-1"
+                        onClick={() => this.props.history.goBack()}>Cancel
+                        <i class="material-icons right">airplanemode_inactive</i>
+                    </a>
+                </footer>
                 
             </div>
         );
