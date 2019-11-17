@@ -93,7 +93,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 24px;
   max-height: 100%;
 }
-#deleteList {
+#deleteList, #addItemCardContent {
   cursor: pointer;
 }
 #todoItemHeader {

@@ -10,6 +10,8 @@ class ItemCard extends React.Component {
         let itemList = this.props.todoList.items;
         itemList[index] = this.props.todoList.items[index+x];
         itemList[index+x] = this.props.item;
+        // update key/id
+
 
         //console.log("Move: item.id: " + this.props.item);
         const fireStore = getFirestore();
@@ -22,12 +24,17 @@ class ItemCard extends React.Component {
     handleDelete = (e) => {
         let itemList = this.props.todoList.items;
         itemList = itemList.filter(i => i != this.props.item);
+        // update key/id
 
-        console.log("Delete: item.id: " + this.props.item);
+        console.log("Delete: item: " + this.props.item);
         const fireStore = getFirestore();
         fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
                 items : itemList
         });
+        e.preventDefault();
+    }
+
+    handleDisabled = (e) => {
         e.preventDefault();
     }
 
@@ -60,8 +67,15 @@ class ItemCard extends React.Component {
                                     large
                                     icon={<Icon>reorder</Icon>}
                                     >
-                                    <Button floating icon={<Icon>keyboard_arrow_up</Icon>} className="blue" onClick={e=>this.handleMove(e,-1)}/> 
-                                    <Button floating icon={<Icon>keyboard_arrow_down</Icon>} className="green" onClick={e=>this.handleMove(e,1)}/>   
+
+                                    {this.props.todoList.items.indexOf(item) == 0 ?
+                                        <Button floating icon={<Icon>keyboard_arrow_up</Icon>} className="grey" onClick={this.handleDisabled}/> :
+                                        <Button floating icon={<Icon>keyboard_arrow_up</Icon>} className="blue" onClick={e=>this.handleMove(e,-1)}/>
+                                    }
+                                    {this.props.todoList.items.indexOf(item) == this.props.todoList.items.length-1 ?
+                                        <Button floating icon={<Icon>keyboard_arrow_down</Icon>} className="grey" onClick={this.handleDisabled}/> :
+                                        <Button floating icon={<Icon>keyboard_arrow_down</Icon>} className="green" onClick={e=>this.handleMove(e,1)}/>
+                                    }
                                     <Button floating icon={<Icon>delete</Icon>} className="yellow darken-2" onClick={e=>this.handleDelete(e)}/>
                                     
                                 </Button>  

@@ -33,11 +33,11 @@ export class ItemScreen extends Component {
     handleSubmit = (e) => {
         let itemList = this.props.todoList.items;
 
-        let item = itemList[this.props.item.id]; ////////////////////////////////////////////////
-        item.description = this.state.description;
-        item.assigned_to = this.state.assigned_to;
-        item.due_date = this.state.due_date;
-        item.completed = this.state.completed;
+        let itm = itemList[itemList.indexOf(this.props.item)];
+        itm.description = this.state.description;
+        itm.assigned_to = this.state.assigned_to;
+        itm.due_date = this.state.due_date;
+        itm.completed = this.state.completed;
 
         // ADD NEW ITEM, GIVE NEW ID
         /*if(this.props.todoItem.key==null) { // new item

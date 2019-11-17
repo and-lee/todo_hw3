@@ -25,7 +25,6 @@ class ListScreen extends Component {
         this.props.firestore.collection("todoLists").doc(this.props.todoList.id).update( {
             [target.id] : target.value
         });
-
     }
 
     handleConfirm = (e) => {
