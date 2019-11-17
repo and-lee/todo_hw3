@@ -65,6 +65,9 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 .assigned_to {
   font-weight: bold;
 }
+.list_item_card_assigned_to {
+  padding-left:0!important;
+}
 #name, #owner, #description, #assigned_to, #due_date {
   font-size: 24px!important;
   padding-top: 8px;
@@ -109,4 +112,9 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 .card-title {
   font-weight: normal!important;
   margin-bottom: 0!important;
+  padding-left: 0!important;
+}
+.fixed-action-btn {
+  position: relative!important;
+  float: right;
 }
