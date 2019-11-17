@@ -30,31 +30,38 @@ export class ItemScreen extends Component {
         
     }
 
+    newKey() {
+        for(let i=0; i<this.props.todoList.items.length; i++) {
+            if(this.props.todoList.items.find(function(item){return item.key==i})==null) {
+                return i;
+            }
+        }
+        return this.props.todoLists.length;
+    }
+
     handleSubmit = (e) => {
         let itemList = this.props.todoList.items;
+        
+        // add new item
+        if(this.props.item.key=="new") { // new item
+            console.log("New Item: ");            
+            // add new item to back
+            itemList.push({
+                "description": this.state.description,
+                "assigned_to": this.state.assigned_to,
+                "due_date": this.state.due_date,
+                "completed": this.state.completed,
+                "key": this.newKey(), // assign new key value
+            });
 
-        let itm = itemList[itemList.indexOf(this.props.item)];
-        itm.description = this.state.description;
-        itm.assigned_to = this.state.assigned_to;
-        itm.due_date = this.state.due_date;
-        itm.completed = this.state.completed;
-
-        // ADD NEW ITEM, GIVE NEW ID
-        /*if(this.props.todoItem.key==null) { // new item
-            this.props.todoItem.key = this.newKey(); // assign key value
-            this.props.todoItem.description = this.state.description;
-            this.props.todoItem.assigned_to = this.state.assigned_to;
-            this.props.todoItem.due_date = this.state.due_date;
-            this.props.todoItem.completed = this.state.completed;
-            
-            //this.props.todoList.items.push(this.props.todoItem); // add new item
-            let transaction = new addItem_Transaction(this.props.todoList, this.props.todoItem);
-            this.props.jsTPS.addTransaction(transaction);
         } else { // editing item
-            let transaction = new editItem_Transaction(this.props.todoItem, this.state.description, this.state.assigned_to, this.state.due_date, this.state.completed);
-            this.props.jsTPS.addTransaction(transaction);
+            console.log("Edit Item: ");
+            let itm = itemList[itemList.indexOf(this.props.item)];
+            itm.description = this.state.description;
+            itm.assigned_to = this.state.assigned_to;
+            itm.due_date = this.state.due_date;
+            itm.completed = this.state.completed;
         }
-        */
 
         // update database
         const fireStore = getFirestore();
@@ -134,7 +141,14 @@ const mapStateToProps = (state, ownProps) => {
     const {id} = ownProps.match.params;
     const todoList = todoLists ? todoLists[id] : null;
     const {itemid} = ownProps.match.params;
-    const item = todoList.items[itemid];
+    const item = (itemid != "new") ? todoList.items[itemid] : {
+            "description": "",
+            "due_date": "",
+            "assigned_to": "",
+            "completed": false,
+            "key": "new", // new item = has no id
+        };
+
     todoList.id = id;
     item.id = itemid;
     return {
