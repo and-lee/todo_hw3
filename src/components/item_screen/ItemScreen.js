@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { getFirestore } from 'redux-firestore';
+import DatePicker from 'react-materialize/lib/DatePicker';
 
 export class ItemScreen extends Component {
     state = {
@@ -15,7 +16,7 @@ export class ItemScreen extends Component {
 
     updateChange = (e) => {
         const { target } = e;
-
+        
         if (target.id == "completed") {
             this.setState(state => ({
                 ...state,
@@ -27,7 +28,15 @@ export class ItemScreen extends Component {
                 [target.id]: target.value,
             }));
         }
-        
+    }
+
+    updateDate = (e) => {
+        console.log(e.value);
+        this.setState(state => ({
+            ...state,
+            due_date: e.value
+        }));
+
     }
 
     newKey() {
@@ -101,14 +110,13 @@ export class ItemScreen extends Component {
                         value={this.state.assigned_to} />
                 </div>
 
-                <div className="input-field">
-                    <label className="active">Due Date</label>
-                    <input 
-                        type="date"
-                        id="due_date" 
-                        onChange={this.updateChange}
-                        value={this.state.due_date} />
-                </div>
+                <DatePicker 
+                    id="due_date"
+                    options={{format: 'yyyy-mm-dd'}} 
+                    onChange={this.updateDate} 
+                    value={this.state.due_date} >
+                        <label className="active">Due Date</label>
+                </DatePicker>
 
                 <div>
                     <label>

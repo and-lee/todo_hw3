@@ -50,9 +50,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 }
 
 
-
 .listheader {
-  font-size: 48px;
+  font-size: 36px;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
 }
 .itemCard {
   font-size: 20px;
@@ -93,7 +94,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 24px;
   max-height: 100%;
 }
-#deleteList, #addItemCardContent {
+#deleteList, #addItemCardContent, .list_item_card_assigned_to, .list_item_card_due_date, .list_item_card_completed {
   cursor: pointer;
 }
 #todoItemHeader {

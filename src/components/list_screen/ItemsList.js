@@ -34,17 +34,22 @@ class ItemsList extends React.Component {
     sortTasks(sortingCriteria) {
         this.setState({currentItemSortCriteria: sortingCriteria}, function(){
             //this.props.todoList.items.sort(this.compare);
-
-
+            const fireStore = getFirestore();
+            fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
+                sortCriteria : this.state.currentItemSortCriteria
+            });
+            let itemList = this.props.todoList.items.sort(this.compare);
+            // update key/id
+            for (let i = 0; i<itemList.length; i++) {
+                itemList[i].id = i;
+            }
+            // update database
+            fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
+                items : itemList
+            });
+            
         });
-        const fireStore = getFirestore();
-        fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
-            sortCriteria : this.state.currentItemSortCriteria
-        });
-        // update database
-        fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
-            items : this.props.todoList.items.sort(this.compare)
-        });
+        
     }
 
     /**
@@ -135,12 +140,12 @@ class ItemsList extends React.Component {
         return (
             <div className="todo-lists section">
 
-                <div className="card listheader z-depth-1 grey darken-2">
-                    <div className="card-content white-text">
+                <div className="card z-depth-1 grey darken-2">
+                    <div className="card-content listheader white-text">
                         <div className="row">
                             <div className='col s4 list_item_card_assigned_to' onClick={this.taskSort}>Task</div>
                             <div className='col s3 list_item_card_due_date' onClick={this.dueDateSort}>Due Date</div>
-                            <div className="col s2" onClick={this.statusSort}>Status</div>
+                            <div className="col s2 list_item_card_completed" onClick={this.statusSort}>Status</div>
                         </div>
                     </div>
                 </div>
