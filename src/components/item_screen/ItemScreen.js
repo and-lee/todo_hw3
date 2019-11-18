@@ -31,10 +31,22 @@ export class ItemScreen extends Component {
     }
 
     updateDate = (e) => {
-        console.log(e.value);
+        /*let month = e.getMonth();
+        let day = e.getDate();
+        if(e.getMonth().length==0) {
+            month = "0" + month;
+        }
+        if(e.getDate().length==0) {
+            day = "0" + day;
+        }
+        console.log(e.getFullYear()+"-"+e.getMonth()+"-"+e.getDate());*/
+        //console.log(e.toISOString());
+        //console.log(e.toJSON().substring(0,10));
+        //console.log(e.toLocaleDateString());
+
         this.setState(state => ({
             ...state,
-            due_date: e.value
+            due_date: e.toJSON().substring(0,10)
         }));
 
     }
