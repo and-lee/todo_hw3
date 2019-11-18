@@ -58,7 +58,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   font-size: 20px;
 }
 
-.list_item_card_due_date, .dateHeader, #addItemCard {
+.list_item_card_due_date, #addItemCard {
   text-align: center;
 }
 
@@ -117,4 +117,5 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 .fixed-action-btn {
   position: relative!important;
   float: right;
+  right: 0!important;
 }

@@ -56,10 +56,10 @@ class ItemCard extends React.Component {
                             </div>
                             
                             {item.completed ? 
-                                <div className='col s2'>&nbsp;<i className="material-icons">event_available</i>&nbsp;Completed</div> : 
-                                <div className='col s2'>&nbsp;<i className="material-icons">schedule</i>&nbsp;Pending</div>}       
+                                <div className='col s2'><i className="material-icons">event_available</i>&nbsp;Completed</div> : 
+                                <div className='col s2'><i className="material-icons">schedule</i>&nbsp;Pending</div>}       
 
-                            <div>
+                            <div className="col s3">
                                 <Button
                                     floating
                                     fab={{direction: 'left'}}
