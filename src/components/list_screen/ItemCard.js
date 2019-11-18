@@ -9,10 +9,11 @@ class ItemCard extends React.Component {
         let index = this.props.todoList.items.indexOf(this.props.item);
         let itemList = this.props.todoList.items;
         itemList[index] = this.props.todoList.items[index+x];
+        itemList[index].id = index;
         itemList[index+x] = this.props.item;
+        itemList[index+x].id = index+x;
         // update key/id
-
-
+        
         //console.log("Move: item.id: " + this.props.item);
         const fireStore = getFirestore();
         fireStore.collection("todoLists").doc(this.props.todoList.id).update( {
@@ -25,6 +26,10 @@ class ItemCard extends React.Component {
         let itemList = this.props.todoList.items;
         itemList = itemList.filter(i => i != this.props.item);
         // update key/id
+        let index = this.props.todoList.items.indexOf(this.props.item);
+        for (let i = index; i<itemList.length; i++) {
+            itemList[i].id = i;
+        }
 
         console.log("Delete: item: " + this.props.item);
         const fireStore = getFirestore();

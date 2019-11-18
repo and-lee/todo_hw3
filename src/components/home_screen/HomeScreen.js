@@ -17,8 +17,9 @@ class HomeScreen extends Component {
             owner: "",
             items: [],
             time: time,
+            sortCriteria: "",
         }).then(ref => {
-            this.props.history.push("/todolist/" + ref.id)
+            this.props.history.push("/todolist/" + ref.id);
         });
 
     }

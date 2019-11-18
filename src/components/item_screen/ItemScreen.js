@@ -36,14 +36,14 @@ export class ItemScreen extends Component {
                 return i;
             }
         }
-        return this.props.todoLists.length;
+        return this.props.todoList.items.length;
     }
 
     handleSubmit = (e) => {
         let itemList = this.props.todoList.items;
         
         // add new item
-        if(this.props.item.key=="new") { // new item
+        if(this.props.item.key==-1) { // new item
             console.log("New Item: ");            
             // add new item to back
             itemList.push({
@@ -52,6 +52,7 @@ export class ItemScreen extends Component {
                 "due_date": this.state.due_date,
                 "completed": this.state.completed,
                 "key": this.newKey(), // assign new key value
+                "id": itemList.length,
             });
 
         } else { // editing item
@@ -146,7 +147,7 @@ const mapStateToProps = (state, ownProps) => {
             "due_date": "",
             "assigned_to": "",
             "completed": false,
-            "key": "new", // new item = has no id
+            "key": -1, // new item = has no id
         };
 
     todoList.id = id;
